@@ -1,0 +1,9 @@
+{
+  "name": "AYUDA CENS",
+  "short_name": "AYUDA CENS",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f2f5fa",
+  "theme_color": "#173b70",
+  "description": "Asistente educativo para estudiantes de secundaria de adultos."
+}
