@@ -1,0 +1,26 @@
+{
+  "name": "ayuda-cens",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Asistente educativo para estudiantes CENS",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "android:init": "npx cap add android",
+    "android:sync": "npx cap sync android",
+    "android:build": "npx cap sync android && cd android && ./gradlew assembleDebug"
+  },
+  "dependencies": {
+    "@capacitor/android": "^7.4.3",
+    "@capacitor/core": "^7.4.3",
+    "@capacitor/cli": "^7.4.3",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "helmet": "^8.0.0",
+    "express-rate-limit": "^7.5.0",
+    "openai": "^5.12.2"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
