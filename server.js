@@ -7,13 +7,15 @@ const OpenAI = require("openai");
 const path = require("path");
 
 const app = express();
+// Render terminates TLS at its proxy; trust the first proxy hop for client IPs.
+app.set("trust proxy", 1);
 const port = process.env.PORT || 3000;
 app.use(helmet({ contentSecurityPolicy: false }));
 app.use(cors({ origin: ["https://localhost", "capacitor://localhost", "http://localhost"] }));
 app.use(express.json({ limit: "30kb" }));
 app.use("/api/", rateLimit({ windowMs: 60 * 1000, limit: 20, standardHeaders: true, legacyHeaders: false }));
 
-app.get("/api/health", (_req, res) => res.json({ ok: true, app: "AYUDA CENS" }));
+app.get("/api/health", (_req, res) => res.json({ ok: true, app: "AYUDA CENS", aiConfigured: Boolean(process.env.OPENAI_API_KEY) }));
 
 app.post("/api/chat", async (req, res) => {
   try {
