@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const helmet = require("helmet");
+const cors = require("cors");
 const rateLimit = require("express-rate-limit");
 const OpenAI = require("openai");
 const path = require("path");
@@ -8,6 +9,7 @@ const path = require("path");
 const app = express();
 const port = process.env.PORT || 3000;
 app.use(helmet({ contentSecurityPolicy: false }));
+app.use(cors({ origin: ["https://localhost", "capacitor://localhost", "http://localhost"] }));
 app.use(express.json({ limit: "30kb" }));
 app.use("/api/", rateLimit({ windowMs: 60 * 1000, limit: 20, standardHeaders: true, legacyHeaders: false }));
 
