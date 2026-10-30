@@ -1,0 +1,8 @@
+{
+  "appId": "ar.com.ayudacens.app",
+  "appName": "AYUDA CENS",
+  "webDir": "public",
+  "server": {
+    "androidScheme": "https"
+  }
+}
